@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\Gameplay\CharacterResource\Pages\ListCharacters;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -53,6 +58,49 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->navigationGroups(
+                $this->getNavigationGroups()
+            )
+            ->navigationItems(
+                $this->getNavigationItems()
+            );
+    }
+
+    private function getNavigationGroups(): array
+    {
+        return [
+            NavigationGroup::make()
+                ->label('Gameplay')
+                ->collapsible()
+                ->collapsed(),
+        ];
+    }
+
+    private function getNavigationItems(): array
+    {
+        return [
+            // Gameplay
+            NavigationItem::make('Personagens')
+                ->url(fn (): string => ListCharacters::getUrl())
+                ->isActiveWhen(
+                    fn (): bool => request()->routeIs(
+                        $this->makeWildCardForRouteName(ListCharacters::getRouteName())
+                    )
+                )
+                ->group('Gameplay'),
+        ];
+    }
+
+    private function makeWildCardForRouteName(string $routeName, ?int $rewindSegments = 1): string
+    {
+        if (!str_contains($routeName, '.')) {
+            return $routeName;
+        }
+
+        $segments    = explode('.', $routeName);
+        $rootSegment = array_slice($segments, 0, count($segments) - $rewindSegments);
+
+        return implode('.', $rootSegment).'.*';
     }
 }
