@@ -1,66 +1,59 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Fã Wiki GLA / GLA Fan Wiki
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Português
 
-## About Laravel
+A ideia é melhorar de forma geral a wiki já existente do [GLA](https://wiki.gla.com.br/). Essa iniciativa surgiu devido à falta de informação disponível na wiki atual, além de alguns erros nas informações que já estão disponíveis.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Objetivo
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O objetivo é facilitar tanto para quem vai alimentar/cuidar da wiki quanto para a própria comunidade, permitindo que todos possam contribuir com a alimentação e manutenção da wiki.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Contexto
 
-## Learning Laravel
+Esta ideia surgiu a partir de algumas participações minhas, [Cauã R. Pereira](https://github.com/c-rocha7), em lives do [Xuemba](https://www.twitch.tv/xuemba). A proposta de transformar a nova wiki do [GLA](https://wiki.gla.com.br/) em um fórum para a comunidade fazer sugestões de alterações veio do próprio [Xuemba](https://www.twitch.tv/xuemba).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Aviso Importante
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Esta ideia não tem vínculo com a equipe do [GLA](https://wiki.gla.com.br/) e não possui fins lucrativos. Trata-se de um projeto desenvolvido no meu tempo livre, com o intuito de melhorar a experiência tanto dos novos jogadores quanto dos veteranos no jogo.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Como Contribuir
 
-## Laravel Sponsors
+- **Fork** o repositório.
+- Faça as modificações desejadas.
+- Submeta um **pull request** para revisão.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Contato
 
-### Premium Partners
+Para mais informações ou sugestões, você pode entrar em contato através do meu [perfil no GitHub](https://github.com/c-rocha7).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Agradecemos por qualquer contribuição que possa ajudar a melhorar a wiki do GLA!
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## English
 
-## Code of Conduct
+The idea is to generally improve the existing [GLA](https://wiki.gla.com.br/) wiki. This initiative arose due to the lack of available information on the current wiki and some errors in the information already provided.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Objective
 
-## Security Vulnerabilities
+The objective is to facilitate the work of those who will maintain the wiki and allow the community to contribute to its upkeep and content.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Context
 
-## License
+This idea came from my participation, [Cauã R. Pereira](https://github.com/c-rocha7), in some live streams by [Xuemba](https://www.twitch.tv/xuemba). The proposal to turn the new [GLA](https://wiki.gla.com.br/) wiki into a forum for the community to suggest changes came from [Xuemba](https://www.twitch.tv/xuemba).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Important Notice
+
+This project is not affiliated with the [GLA](https://wiki.gla.com.br/) team and is non-profit. It is a personal project developed in my spare time to enhance the experience for both new and veteran players of the game.
+
+### How to Contribute
+
+- **Fork** the repository.
+- Make the desired modifications.
+- Submit a **pull request** for review.
+
+### Contact
+
+For more information or suggestions, you can contact me through my [GitHub profile](https://github.com/c-rocha7).
+
+We appreciate any contributions that can help improve the GLA wiki!
