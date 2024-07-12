@@ -8,6 +8,7 @@ use App\Filament\Resources\Gameplay\CharacterResource\Pages\ListCharacters;
 use App\Filament\Resources\Gameplay\ItemResource\Pages\ListItems;
 use App\Filament\Resources\Info\BaseStatuResource\Pages\ListBaseStatus;
 use App\Filament\Resources\Info\TagResource\Pages\ListTags;
+use App\Filament\Resources\Info\TypeResource\Pages\ListTypes;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -119,6 +120,14 @@ class AdminPanelProvider extends PanelProvider
                 ->isActiveWhen(
                     fn (): bool => request()->routeIs(
                         $this->makeWildCardForRouteName(ListBaseStatus::getRouteName())
+                    )
+                )
+                ->group('Info'),
+            NavigationItem::make('Tipo')
+                ->url(fn (): string => ListTypes::getUrl())
+                ->isActiveWhen(
+                    fn (): bool => request()->routeIs(
+                        $this->makeWildCardForRouteName(ListTypes::getRouteName())
                     )
                 )
                 ->group('Info'),
