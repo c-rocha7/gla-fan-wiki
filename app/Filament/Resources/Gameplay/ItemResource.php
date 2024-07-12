@@ -7,6 +7,7 @@ namespace App\Filament\Resources\Gameplay;
 use App\Filament\Resources\Gameplay\ItemResource\Pages;
 use App\Filament\Resources\Gameplay\ItemResource\RelationManagers;
 use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemTagRelationManager;
+use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemTypeRelationManager;
 use App\Models\Item;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -161,6 +162,7 @@ class ItemResource extends Resource
     {
         return [
             ItemTagRelationManager::class,
+            ItemTypeRelationManager::class,
         ];
     }
 
