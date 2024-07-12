@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use App\Filament\Resources\Gameplay\CharacterResource\Pages\ListCharacters;
+use App\Filament\Resources\Info\BaseStatuResource\Pages\ListBaseStatus;
 use App\Filament\Resources\Info\TagResource\Pages\ListTags;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -101,6 +102,14 @@ class AdminPanelProvider extends PanelProvider
                 ->isActiveWhen(
                     fn (): bool => request()->routeIs(
                         $this->makeWildCardForRouteName(ListTags::getRouteName())
+                    )
+                )
+                ->group('Info'),
+            NavigationItem::make('Status Base')
+                ->url(fn (): string => ListBaseStatus::getUrl())
+                ->isActiveWhen(
+                    fn (): bool => request()->routeIs(
+                        $this->makeWildCardForRouteName(ListBaseStatus::getRouteName())
                     )
                 )
                 ->group('Info'),
