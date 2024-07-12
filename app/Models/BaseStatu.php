@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BaseStatu extends Model
 {
@@ -14,4 +15,9 @@ class BaseStatu extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function characterBaseStatu(): HasMany
+    {
+        return $this->hasMany(CharacterBaseStatu::class);
+    }
 }
