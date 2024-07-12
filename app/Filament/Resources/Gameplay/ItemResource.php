@@ -6,6 +6,7 @@ namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\ItemResource\Pages;
 use App\Filament\Resources\Gameplay\ItemResource\RelationManagers;
+use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemTagRelationManager;
 use App\Models\Item;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -159,7 +160,7 @@ class ItemResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ItemTagRelationManager::class,
         ];
     }
 
