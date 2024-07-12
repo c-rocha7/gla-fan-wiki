@@ -20,4 +20,9 @@ class Item extends Model
     {
         return $this->hasMany(ItemTag::class);
     }
+
+    public function itemType(): HasMany
+    {
+        return $this->hasMany(ItemType::class);
+    }
 }
