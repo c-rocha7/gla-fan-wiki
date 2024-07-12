@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             BaseStatuSeeder::class,
             ItemSeeder::class,
+            TypeSeeder::class,
         ]);
     }
 }
