@@ -24,6 +24,7 @@ class ItemResource extends Resource
     protected static ?string $model = Item::class;
     protected static ?string $modelLabel            = 'Item';
     protected static ?string $pluralModelLabel      = 'Itens';
+    protected static ?string $recordTitleAttribute  = 'name';
     protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form

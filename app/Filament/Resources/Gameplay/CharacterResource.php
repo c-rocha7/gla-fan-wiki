@@ -25,6 +25,7 @@ class CharacterResource extends Resource
     protected static ?string $model = Character::class;
     protected static ?string $modelLabel            = 'Personagem';
     protected static ?string $pluralModelLabel      = 'Personagens';
+    protected static ?string $recordTitleAttribute  = 'name';
     protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
