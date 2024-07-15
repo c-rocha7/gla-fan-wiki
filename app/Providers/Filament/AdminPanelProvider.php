@@ -7,6 +7,7 @@ namespace App\Providers\Filament;
 use App\Filament\Resources\Gameplay\CharacterResource\Pages\ListCharacters;
 use App\Filament\Resources\Gameplay\ItemResource\Pages\ListItems;
 use App\Filament\Resources\Info\BaseStatuResource\Pages\ListBaseStatus;
+use App\Filament\Resources\Info\DropResource\Pages\ListDrops;
 use App\Filament\Resources\Info\TagResource\Pages\ListTags;
 use App\Filament\Resources\Info\TypeResource\Pages\ListTypes;
 use Filament\Http\Middleware\Authenticate;
@@ -128,6 +129,14 @@ class AdminPanelProvider extends PanelProvider
                 ->isActiveWhen(
                     fn (): bool => request()->routeIs(
                         $this->makeWildCardForRouteName(ListTypes::getRouteName())
+                    )
+                )
+                ->group('Info'),
+            NavigationItem::make('Drop')
+                ->url(fn (): string => ListDrops::getUrl())
+                ->isActiveWhen(
+                    fn (): bool => request()->routeIs(
+                        $this->makeWildCardForRouteName(ListDrops::getRouteName())
                     )
                 )
                 ->group('Info'),
