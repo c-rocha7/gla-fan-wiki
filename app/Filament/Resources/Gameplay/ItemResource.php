@@ -6,9 +6,11 @@ namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\ItemResource\Pages;
 use App\Filament\Resources\Gameplay\ItemResource\RelationManagers;
+use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemDropRelationManager;
 use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemTagRelationManager;
 use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemTypeRelationManager;
 use App\Models\Item;
+use App\Models\ItemDrop;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -163,6 +165,7 @@ class ItemResource extends Resource
         return [
             ItemTagRelationManager::class,
             ItemTypeRelationManager::class,
+            ItemDropRelationManager::class,
         ];
     }
 
