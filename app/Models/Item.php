@@ -25,4 +25,9 @@ class Item extends Model
     {
         return $this->hasMany(ItemType::class);
     }
+
+    public function itemDrop(): HasMany
+    {
+        return $this->hasMany(ItemDrop::class);
+    }
 }
