@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class SkillRelationManager extends RelationManager
 {
     protected static string $relationship = 'skill';
+    protected static ?string $title = 'Skill';
 
     public function form(Form $form): Form
     {
@@ -58,7 +59,7 @@ class SkillRelationManager extends RelationManager
 
                 Forms\Components\Section::make()->schema([
                     Forms\Components\RichEditor::make('description')
-                        ->label('Description')
+                        ->label('Descrição')
                         ->toolbarButtons([
                             'bold',
                             'italic',
@@ -103,6 +104,8 @@ class SkillRelationManager extends RelationManager
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Nenhuma Skill')
+            ->emptyStateDescription('Adicione Skills ao Personagem');
     }
 }

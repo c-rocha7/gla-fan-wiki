@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ItemTagRelationManager extends RelationManager
 {
     protected static string $relationship = 'itemTag';
+    protected static ?string $title = 'Tag';
 
     public function form(Form $form): Form
     {
@@ -50,7 +51,12 @@ class ItemTagRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make()
+                    ->label('Adicionar Tag')
+                    ->modalSubmitActionLabel('Adicionar Tag')
+                    ->modalCancelActionLabel('Cancelar')
+                    ->modalHeading('Adicionar Tags ao Item')
+                    ->createAnother(false),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

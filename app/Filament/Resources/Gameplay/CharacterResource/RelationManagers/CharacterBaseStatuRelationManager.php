@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class CharacterBaseStatuRelationManager extends RelationManager
 {
     protected static string $relationship = 'characterBaseStatu';
+    protected static ?string $title = 'Status Base';
 
     public function form(Form $form): Form
     {
@@ -35,7 +36,8 @@ class CharacterBaseStatuRelationManager extends RelationManager
                             ->pluck('name', 'id')
                             ->toArray();
                     })
-                    ->native(false),
+                    ->native(false)
+                    ->required(),
 
                 Forms\Components\TextInput::make('value')
                     ->label('Valor')
@@ -58,7 +60,12 @@ class CharacterBaseStatuRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make()
+                    ->label('Adicionar Status Base')
+                    ->modalSubmitActionLabel('Adicionar Status Base')
+                    ->modalCancelActionLabel('Cancelar')
+                    ->modalHeading('Adicionar Status Base ao Personagem')
+                    ->createAnother(false),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -68,6 +75,8 @@ class CharacterBaseStatuRelationManager extends RelationManager
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Nenhum Status Base')
+            ->emptyStateDescription('Adicione um Status Base ao Personagem');
     }
 }
