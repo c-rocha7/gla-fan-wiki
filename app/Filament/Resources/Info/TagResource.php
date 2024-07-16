@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Info;
 
 use App\Filament\Resources\Info\TagResource\Pages;
-use App\Filament\Resources\Info\TagResource\RelationManagers;
 use App\Models\Tag;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TagResource extends Resource
 {
-    protected static ?string $model = Tag::class;
+    protected static ?string $model                 = Tag::class;
     protected static ?string $modelLabel            = 'Tag';
     protected static ?string $pluralModelLabel      = 'Tags';
     protected static bool $shouldRegisterNavigation = false;
@@ -65,9 +62,9 @@ class TagResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTags::route('/'),
+            'index'  => Pages\ListTags::route('/'),
             'create' => Pages\CreateTag::route('/create'),
-            'edit' => Pages\EditTag::route('/{record}/edit'),
+            'edit'   => Pages\EditTag::route('/{record}/edit'),
         ];
     }
 }

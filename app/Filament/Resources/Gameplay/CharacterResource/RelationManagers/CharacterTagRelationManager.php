@@ -11,14 +11,11 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Symfony\Contracts\Service\Attribute\Required;
 
 class CharacterTagRelationManager extends RelationManager
 {
     protected static string $relationship = 'characterTag';
-    protected static ?string $title = 'Tag';
+    protected static ?string $title       = 'Tag';
 
     public function form(Form $form): Form
     {

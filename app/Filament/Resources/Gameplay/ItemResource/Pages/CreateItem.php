@@ -7,7 +7,6 @@ namespace App\Filament\Resources\Gameplay\ItemResource\Pages;
 use App\Filament\Resources\Gameplay\ItemResource;
 use App\Models\ItemDrop;
 use App\Models\ItemType;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateItem extends CreateRecord
@@ -19,13 +18,13 @@ class CreateItem extends CreateRecord
         $typeId = $this->data['type_id'];
         $itemId = $this->record->id;
 
-        $itemType = new ItemType();
+        $itemType          = new ItemType();
         $itemType->item_id = $itemId;
         $itemType->type_id = $typeId;
         $itemType->save();
 
-        $dropId = $this->data['drop_id'];
-        $itemDrop = new ItemDrop();
+        $dropId            = $this->data['drop_id'];
+        $itemDrop          = new ItemDrop();
         $itemDrop->item_id = $itemId;
         $itemDrop->drop_id = $dropId;
         $itemDrop->save();

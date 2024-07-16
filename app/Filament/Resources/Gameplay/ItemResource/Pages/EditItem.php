@@ -23,13 +23,13 @@ class EditItem extends EditRecord
     {
         $typeId = $this->data['type_id'];
 
-        $itemType = $this->record->itemType()->first();
+        $itemType          = $this->record->itemType()->first();
         $itemType->type_id = $typeId;
         $itemType->save();
 
         $dropId = $this->data['drop_id'];
 
-        $itemDrop = $this->record->itemDrop()->first();
+        $itemDrop          = $this->record->itemDrop()->first();
         $itemDrop->drop_id = $dropId;
         $itemDrop->save();
     }

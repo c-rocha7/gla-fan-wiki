@@ -5,24 +5,20 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\CharacterResource\Pages;
-use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers;
 use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\CharacterBaseStatuRelationManager;
 use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\CharacterTagRelationManager;
 use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\SkillRelationManager;
 use App\Models\Character;
-use App\Models\CharacterBaseStatu;
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CharacterResource extends Resource
 {
-    protected static ?string $model = Character::class;
+    protected static ?string $model                 = Character::class;
     protected static ?string $modelLabel            = 'Personagem';
     protected static ?string $pluralModelLabel      = 'Personagens';
     protected static ?string $recordTitleAttribute  = 'name';
@@ -114,9 +110,9 @@ class CharacterResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCharacters::route('/'),
+            'index'  => Pages\ListCharacters::route('/'),
             'create' => Pages\CreateCharacter::route('/create'),
-            'edit' => Pages\EditCharacter::route('/{record}/edit'),
+            'edit'   => Pages\EditCharacter::route('/{record}/edit'),
         ];
     }
 }

@@ -5,26 +5,19 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\ItemResource\Pages;
-use App\Filament\Resources\Gameplay\ItemResource\RelationManagers;
-use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemDropRelationManager;
 use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemTagRelationManager;
-use App\Filament\Resources\Gameplay\ItemResource\RelationManagers\ItemTypeRelationManager;
 use App\Models\Drop;
 use App\Models\Item;
-use App\Models\ItemDrop;
-use App\Models\ItemType;
 use App\Models\Type;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ItemResource extends Resource
 {
-    protected static ?string $model = Item::class;
+    protected static ?string $model                 = Item::class;
     protected static ?string $modelLabel            = 'Item';
     protected static ?string $pluralModelLabel      = 'Itens';
     protected static ?string $recordTitleAttribute  = 'name';
@@ -177,7 +170,7 @@ class ItemResource extends Resource
                                 ->image(),
                             Forms\Components\Select::make('type_id')
                                 ->label('Tipo')
-                                ->options(Function ($context) {
+                                ->options(function ($context) {
                                     if ($context == 'create') {
                                         $types = Type::all();
                                         return $types
@@ -249,9 +242,9 @@ class ItemResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListItems::route('/'),
+            'index'  => Pages\ListItems::route('/'),
             'create' => Pages\CreateItem::route('/create'),
-            'edit' => Pages\EditItem::route('/{record}/edit'),
+            'edit'   => Pages\EditItem::route('/{record}/edit'),
         ];
     }
 }

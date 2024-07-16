@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Info;
 
 use App\Filament\Resources\Info\TypeResource\Pages;
-use App\Filament\Resources\Info\TypeResource\RelationManagers;
 use App\Models\Type;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TypeResource extends Resource
 {
-    protected static ?string $model = Type::class;
+    protected static ?string $model                 = Type::class;
     protected static ?string $modelLabel            = 'Tipo';
     protected static ?string $pluralModelLabel      = 'Tipos';
     protected static bool $shouldRegisterNavigation = false;
@@ -65,9 +62,9 @@ class TypeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTypes::route('/'),
+            'index'  => Pages\ListTypes::route('/'),
             'create' => Pages\CreateType::route('/create'),
-            'edit' => Pages\EditType::route('/{record}/edit'),
+            'edit'   => Pages\EditType::route('/{record}/edit'),
         ];
     }
 }

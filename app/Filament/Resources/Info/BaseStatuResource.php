@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Info;
 
 use App\Filament\Resources\Info\BaseStatuResource\Pages;
-use App\Filament\Resources\Info\BaseStatuResource\RelationManagers;
 use App\Models\BaseStatu;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BaseStatuResource extends Resource
 {
-    protected static ?string $model = BaseStatu::class;
+    protected static ?string $model                 = BaseStatu::class;
     protected static ?string $modelLabel            = 'Status Base';
     protected static ?string $pluralModelLabel      = 'Status Base';
     protected static bool $shouldRegisterNavigation = false;
@@ -66,9 +63,9 @@ class BaseStatuResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBaseStatus::route('/'),
+            'index'  => Pages\ListBaseStatus::route('/'),
             'create' => Pages\CreateBaseStatu::route('/create'),
-            'edit' => Pages\EditBaseStatu::route('/{record}/edit'),
+            'edit'   => Pages\EditBaseStatu::route('/{record}/edit'),
         ];
     }
 }

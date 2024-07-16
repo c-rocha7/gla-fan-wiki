@@ -11,13 +11,11 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CharacterBaseStatuRelationManager extends RelationManager
 {
     protected static string $relationship = 'characterBaseStatu';
-    protected static ?string $title = 'Status Base';
+    protected static ?string $title       = 'Status Base';
 
     public function form(Form $form): Form
     {
