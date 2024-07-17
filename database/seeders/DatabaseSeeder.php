@@ -18,6 +18,12 @@ class DatabaseSeeder extends Seeder
             ItemSeeder::class,
             TypeSeeder::class,
             DropSeeder::class,
+            CharacterTagSeeder::class,
+            CharacterBaseStatuSeeder::class,
+            SkillSeeder::class,
+            ItemTagSeeder::class,
+            ItemTypeSeeder::class,
+            ItemDropSeeder::class,
         ]);
     }
 }

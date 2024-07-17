@@ -13,23 +13,23 @@ class ItemSeeder extends Seeder
     {
         $data = [
             [
-                'name'                  => 'Espada de Zoro',
+                'name'                  => 'Bandana de Bandido',
                 'image'                 => '',
                 'level'                 => 1,
-                'min_vitality'          => 1,
-                'max_vitality'          => 1,
+                'min_vitality'          => 2,
+                'max_vitality'          => 3,
                 'min_defense'           => 1,
-                'max_defense'           => 1,
-                'min_experience'        => 1,
-                'max_experience'        => 1,
-                'min_luck'              => 1,
-                'max_luck'              => 1,
-                'min_attack'            => 1,
-                'max_attack'            => 1,
-                'min_armor_penetration' => 1,
-                'max_armor_penetration' => 1,
-                'min_critical'          => 1,
-                'max_critical'          => 1,
+                'max_defense'           => 24,
+                'min_experience'        => 30,
+                'max_experience'        => 0,
+                'min_luck'              => 0,
+                'max_luck'              => 0,
+                'min_attack'            => 0,
+                'max_attack'            => 0,
+                'min_armor_penetration' => 0,
+                'max_armor_penetration' => 0,
+                'min_critical'          => 0,
+                'max_critical'          => 0,
             ]
         ];
 
