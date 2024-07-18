@@ -14,7 +14,7 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('name');
-            $table->tinyInteger('level');
+            $table->string('slug')->unique();
             $table->integer('life');
             $table->integer('attack');
             $table->integer('defense');
