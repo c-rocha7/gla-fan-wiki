@@ -7,6 +7,7 @@ namespace App\Providers\Filament;
 use App\Filament\Resources\Gameplay\CharacterResource\Pages\ListCharacters;
 use App\Filament\Resources\Gameplay\IslandResource\Pages\ListIslands;
 use App\Filament\Resources\Gameplay\ItemResource\Pages\ListItems;
+use App\Filament\Resources\Gameplay\MobResource\Pages\ListMobs;
 use App\Filament\Resources\Info\BaseStatuResource\Pages\ListBaseStatus;
 use App\Filament\Resources\Info\DropResource\Pages\ListDrops;
 use App\Filament\Resources\Info\TagResource\Pages\ListTags;
@@ -112,6 +113,14 @@ class AdminPanelProvider extends PanelProvider
                 ->isActiveWhen(
                     fn (): bool => request()->routeIs(
                         $this->makeWildCardForRouteName(ListIslands::getRouteName())
+                    )
+                )
+                ->group('Gameplay'),
+            NavigationItem::make('Monstros')
+                ->url(fn (): string => ListMobs::getUrl())
+                ->isActiveWhen(
+                    fn (): bool => request()->routeIs(
+                        $this->makeWildCardForRouteName(ListMobs::getRouteName())
                     )
                 )
                 ->group('Gameplay'),
