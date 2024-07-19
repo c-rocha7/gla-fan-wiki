@@ -49,7 +49,8 @@ class TypeResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Nenhum Tipo');
     }
 
     public static function getRelations(): array

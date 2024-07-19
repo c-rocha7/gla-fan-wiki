@@ -49,7 +49,8 @@ class DropResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Nenhum Drop');
     }
 
     public static function getRelations(): array

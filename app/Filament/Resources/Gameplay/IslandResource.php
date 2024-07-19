@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\IslandResource\Pages;
-use App\Filament\Resources\Gameplay\IslandResource\RelationManagers;
 use App\Models\Island;
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
 use Filament\Forms;
@@ -13,15 +12,13 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class IslandResource extends Resource
 {
-    protected static ?string $model = Island::class;
-    protected static ?string $modelLabel = 'Ilha';
-    protected static ?string $pluralModelLabel = 'Ilhas';
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $model                 = Island::class;
+    protected static ?string $modelLabel            = 'Ilha';
+    protected static ?string $pluralModelLabel      = 'Ilhas';
+    protected static ?string $recordTitleAttribute  = 'name';
     protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
@@ -89,8 +86,7 @@ class IslandResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            ->emptyStateHeading('Nenhuma Ilha')
-            ->emptyStateDescription('Adicione as Ilhas do Jogo');
+            ->emptyStateHeading('Nenhuma Ilha');
     }
 
     public static function getRelations(): array
@@ -103,9 +99,9 @@ class IslandResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListIslands::route('/'),
+            'index'  => Pages\ListIslands::route('/'),
             'create' => Pages\CreateIsland::route('/create'),
-            'edit' => Pages\EditIsland::route('/{record}/edit'),
+            'edit'   => Pages\EditIsland::route('/{record}/edit'),
         ];
     }
 }

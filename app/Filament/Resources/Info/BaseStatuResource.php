@@ -50,7 +50,8 @@ class BaseStatuResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Nenhum Status Base');
     }
 
     public static function getRelations(): array

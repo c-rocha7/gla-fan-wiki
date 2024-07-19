@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\MobResource\Pages;
-use App\Filament\Resources\Gameplay\MobResource\RelationManagers;
 use App\Models\Mob;
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
 use Filament\Forms;
@@ -13,15 +12,13 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class MobResource extends Resource
 {
-    protected static ?string $model = Mob::class;
-    protected static ?string $modelLabel = 'Monstro';
-    protected static ?string $pluralModelLabel = 'Monstros';
-    protected static string $title = 'Nome';
+    protected static ?string $model                 = Mob::class;
+    protected static ?string $modelLabel            = 'Monstro';
+    protected static ?string $pluralModelLabel      = 'Monstros';
+    protected static string $title                  = 'Nome';
     protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
@@ -29,7 +26,7 @@ class MobResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Grid::make(3)->schema([
-                    Forms\COmponents\Section::make()->schema([
+                    Forms\Components\Section::make()->schema([
                         TitleWithSlugInput::make(
                             fieldTitle: 'name',
                             fieldSlug: 'slug',
@@ -95,8 +92,7 @@ class MobResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            ->emptyStateHeading('Nenhum Monstro')
-            ->emptyStateDescription('Adicione Monstros');
+            ->emptyStateHeading('Nenhum Monstro');
     }
 
     public static function getRelations(): array
@@ -109,9 +105,9 @@ class MobResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMobs::route('/'),
+            'index'  => Pages\ListMobs::route('/'),
             'create' => Pages\CreateMob::route('/create'),
-            'edit' => Pages\EditMob::route('/{record}/edit'),
+            'edit'   => Pages\EditMob::route('/{record}/edit'),
         ];
     }
 }

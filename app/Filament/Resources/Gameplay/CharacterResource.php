@@ -95,7 +95,8 @@ class CharacterResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Nenhum Personagem');
     }
 
     public static function getRelations(): array

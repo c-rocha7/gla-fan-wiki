@@ -49,7 +49,8 @@ class TagResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('Nenhuma Tag');
     }
 
     public static function getRelations(): array
