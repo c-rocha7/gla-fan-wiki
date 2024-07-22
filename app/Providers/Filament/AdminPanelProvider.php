@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\Config\TierResource\Pages\ListTiers;
 use App\Filament\Resources\Gameplay\CharacterResource\Pages\ListCharacters;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -74,6 +75,11 @@ class AdminPanelProvider extends PanelProvider
                 ->label('Gameplay')
                 ->collapsible()
                 ->collapsed(),
+
+            NavigationGroup::make()
+                ->label('Configurações')
+                ->collapsible()
+                ->collapsed(),
         ];
     }
 
@@ -91,6 +97,18 @@ class AdminPanelProvider extends PanelProvider
                     )
                 )
                 ->group('Gameplay'),
+
+            // Configurações
+            NavigationItem::make('Tiers')
+                ->url(fn (): string => ListTiers::getUrl())
+                ->icon('heroicon-o-cog')
+                ->activeIcon('heroicon-o-cog')
+                ->isActiveWhen(
+                    fn (): bool => request()->routeIs(
+                        $this->makeWildCardForRouteName(ListTiers::getRouteName())
+                    )
+                )
+                ->group('Configurações'),
         ];
     }
 
