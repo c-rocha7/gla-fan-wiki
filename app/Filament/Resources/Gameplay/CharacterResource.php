@@ -6,6 +6,7 @@ namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\CharacterResource\Pages;
 use App\Models\Character;
+use App\Models\Tier;
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -57,6 +58,30 @@ class CharacterResource extends Resource
                                     'undo',
                                     'redo',
                                 ]),
+
+                            Forms\Components\Select::make('tier_id')
+                                ->label('Tier')
+                                ->options(function ($context) {
+                                    if ('create' == $context) {
+                                        $tiers = Tier::all();
+
+                                        return $tiers
+                                                ->pluck('name', 'id')
+                                                ->toArray();
+                                    }
+
+                                    return Tier::pluck('name', 'id')
+                                                ->toArray();
+                                })
+                                ->formatStateUsing(function ($record, $context) {
+                                    if ('create' == $context) {
+                                        return null;
+                                    }
+
+                                    return $record->characterTier()->first()->tier_id;
+                                })
+                                ->native(false)
+                                ->required(),
                         ]),
                     ])->columnSpan(2),
 

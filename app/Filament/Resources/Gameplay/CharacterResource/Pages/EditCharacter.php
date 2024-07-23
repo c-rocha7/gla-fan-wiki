@@ -18,4 +18,12 @@ class EditCharacter extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function beforeSave(): void
+    {
+        $tierId                 = $this->data['tier_id'];
+        $characterTier          = $this->record->characterTier()->first();
+        $characterTier->tier_id = $tierId;
+        $characterTier->save();
+    }
 }
