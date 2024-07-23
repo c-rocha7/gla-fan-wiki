@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             TierSeeder::class,
             CharacterTierSeeder::class,
             TagSeeder::class,
+            CharacterTagSeeder::class,
         ]);
     }
 }
