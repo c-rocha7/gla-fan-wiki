@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Character extends Model
 {
@@ -14,4 +15,9 @@ class Character extends Model
     protected $guarded = [
         'id',
     ];
+
+    public function characterTier(): HasMany
+    {
+        return $this->hasMany(CharacterTier::class);
+    }
 }
