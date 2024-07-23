@@ -20,4 +20,9 @@ class Character extends Model
     {
         return $this->hasMany(CharacterTier::class);
     }
+
+    public function characterTag(): HasMany
+    {
+        return $this->hasMany(CharacterTag::class);
+    }
 }
