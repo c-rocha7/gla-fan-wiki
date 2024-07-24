@@ -30,4 +30,9 @@ class Character extends Model
     {
         return $this->hasMany(CharacterBaseStatus::class);
     }
+
+    public function skill(): HasMany
+    {
+        return $this->hasMany(Skill::class);
+    }
 }
