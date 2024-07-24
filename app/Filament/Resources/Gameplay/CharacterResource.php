@@ -7,6 +7,7 @@ namespace App\Filament\Resources\Gameplay;
 use App\Filament\Resources\Gameplay\CharacterResource\Pages;
 use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\CharacterBaseStatusRelationManager;
 use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\CharacterTagRelationManager;
+use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\SkillRelationManager;
 use App\Models\Character;
 use App\Models\Tier;
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
@@ -136,6 +137,7 @@ class CharacterResource extends Resource
         return [
             CharacterTagRelationManager::class,
             CharacterBaseStatusRelationManager::class,
+            SkillRelationManager::class,
         ];
     }
 
