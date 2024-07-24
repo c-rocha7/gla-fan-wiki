@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             CharacterTagSeeder::class,
             BaseStatusSeeder::class,
+            CharacterBaseStatusSeeder::class,
         ]);
     }
 }
