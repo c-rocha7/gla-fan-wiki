@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\CharacterResource\Pages;
+use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\CharacterTagRelationManager;
 use App\Models\Character;
 use App\Models\Tier;
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
@@ -131,7 +132,9 @@ class CharacterResource extends Resource
 
     public static function getRelations(): array
     {
-        return [];
+        return [
+            CharacterTagRelationManager::class,
+        ];
     }
 
     public static function getPages(): array
