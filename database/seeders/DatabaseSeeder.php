@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CharacterTagSeeder::class,
             BaseStatusSeeder::class,
             CharacterBaseStatusSeeder::class,
+            SkillSeeder::class,
         ]);
     }
 }
