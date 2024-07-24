@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Resources\Gameplay;
 
 use App\Filament\Resources\Gameplay\CharacterResource\Pages;
+use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\CharacterBaseStatusRelationManager;
 use App\Filament\Resources\Gameplay\CharacterResource\RelationManagers\CharacterTagRelationManager;
 use App\Models\Character;
 use App\Models\Tier;
@@ -134,6 +135,7 @@ class CharacterResource extends Resource
     {
         return [
             CharacterTagRelationManager::class,
+            CharacterBaseStatusRelationManager::class,
         ];
     }
 
