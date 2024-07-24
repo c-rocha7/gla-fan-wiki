@@ -37,7 +37,7 @@ class CharacterBaseStatusRelationManager extends RelationManager
                                     ->pluck('name', 'id')
                                     ->toArray();
                             })
-                            ->formatStateUsing(fn ($record): string => $record->baseStatus->name)
+                            ->formatStateUsing(fn ($record): ?string => $record?->baseStatus->name)
                             ->native(false)
                             ->required(),
 

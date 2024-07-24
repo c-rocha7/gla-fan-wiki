@@ -37,7 +37,7 @@ class CharacterTagRelationManager extends RelationManager
                                     ->pluck('name', 'id')
                                     ->toArray();
                             })
-                            ->formatStateUsing(fn ($record): string => $record->tag->name)
+                            ->formatStateUsing(fn ($record): ?string => $record?->tag->name)
                             ->native(false)
                             ->required(),
                     ]),
