@@ -8,6 +8,7 @@ use App\Filament\Resources\Config\BaseStatusResource\Pages\ListBaseStatuses;
 use App\Filament\Resources\Config\TagResource\Pages\ListTags;
 use App\Filament\Resources\Config\TierResource\Pages\ListTiers;
 use App\Filament\Resources\Gameplay\CharacterResource\Pages\ListCharacters;
+use App\Filament\Resources\Item\EquipmentResource\Pages\ListEquipment;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -79,6 +80,11 @@ class AdminPanelProvider extends PanelProvider
                 ->collapsed(),
 
             NavigationGroup::make()
+                ->label('Itens')
+                ->collapsible()
+                ->collapsed(),
+
+            NavigationGroup::make()
                 ->label('Configurações')
                 ->collapsible()
                 ->collapsed(),
@@ -133,6 +139,18 @@ class AdminPanelProvider extends PanelProvider
                     )
                 )
                 ->group('Configurações'),
+
+            // Itens
+            NavigationItem::make('Equipamentos')
+                ->url(fn (): string => ListEquipment::getUrl())
+                ->icon('heroicon-o-shield-check')
+                ->activeIcon('heroicon-s-shield-check')
+                ->isActiveWhen(
+                    fn (): bool => request()->routeIs(
+                        $this->makeWildCardForRouteName(ListEquipment::getRouteName())
+                    )
+                )
+                ->group('Itens'),
         ];
     }
 
