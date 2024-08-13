@@ -7,6 +7,7 @@ namespace App\Filament\Resources\Item;
 use App\Filament\Resources\Item\EquipmentResource\Pages;
 use App\Filament\Resources\Item\EquipmentResource\RelationManagers;
 use App\Models\Equipment;
+use App\Models\ItemType;
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -163,6 +164,30 @@ class EquipmentResource extends Resource
                                 ->acceptedFileTypes([
                                     'image/png',
                                 ])
+                                ->required(),
+
+                            Forms\Components\Select::make('item_type_id')
+                                ->label('Tipo')
+                                ->options(function ($context) {
+                                    if ('create' == $context) {
+                                        $itemTypes = ItemType::all();
+
+                                        return $itemTypes
+                                                ->pluck('name', 'id')
+                                                ->toArray();
+                                    }
+
+                                    return ItemType::pluck('name', 'id')
+                                                ->toArray();
+                                })
+                                ->formatStateUsing(function ($record, $context) {
+                                    if ('create' == $context) {
+                                        return null;
+                                    }
+
+                                    return $record->equipmentItemType()->first()->item_type_id;
+                                })
+                                ->native(false)
                                 ->required(),
                         ]),
                     ])->columnSpan(1),

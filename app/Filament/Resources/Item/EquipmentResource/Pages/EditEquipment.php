@@ -18,4 +18,12 @@ class EditEquipment extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function beforeSave(): void
+    {
+        $itemTypeId = $this->data['item_type_id'];
+        $equipmentItemType = $this->record->equipmentItemType()->first();
+        $equipmentItemType->item_type_id = $itemTypeId;
+        $equipmentItemType->save();
+    }
 }
