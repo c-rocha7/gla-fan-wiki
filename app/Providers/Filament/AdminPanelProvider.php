@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use App\Filament\Resources\Config\BaseStatusResource\Pages\ListBaseStatuses;
+use App\Filament\Resources\Config\ItemTypeResource\Pages\ListItemTypes;
 use App\Filament\Resources\Config\TagResource\Pages\ListTags;
 use App\Filament\Resources\Config\TierResource\Pages\ListTiers;
 use App\Filament\Resources\Gameplay\CharacterResource\Pages\ListCharacters;
@@ -136,6 +137,17 @@ class AdminPanelProvider extends PanelProvider
                 ->isActiveWhen(
                     fn (): bool => request()->routeIs(
                         $this->makeWildCardForRouteName(ListBaseStatuses::getRouteName())
+                    )
+                )
+                ->group('Configurações'),
+
+            NavigationItem::make('Tipos de Item')
+                ->url(fn (): string => ListItemTypes::getUrl())
+                ->icon('heroicon-o-bookmark')
+                ->activeIcon('heroicon-o-bookmark')
+                ->isActiveWhen(
+                    fn (): bool => request()->routeIs(
+                        $this->makeWildCardForRouteName(ListItemTypes::getRouteName())
                     )
                 )
                 ->group('Configurações'),
