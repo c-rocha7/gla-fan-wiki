@@ -20,4 +20,9 @@ class Tag extends Model
     {
         return $this->hasMany(CharacterTag::class);
     }
+
+    public function equipmentTag(): HasMany
+    {
+        return $this->hasMany(EquipmentTag::class);
+    }
 }

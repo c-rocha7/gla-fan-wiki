@@ -20,4 +20,9 @@ class Equipment extends Model
     {
         return $this->hasMany(EquipmentItemType::class);
     }
+
+    public function equipmentTag(): HasMany
+    {
+        return $this->hasMany(EquipmentTag::class);
+    }
 }
