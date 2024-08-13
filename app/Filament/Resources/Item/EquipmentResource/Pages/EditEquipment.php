@@ -25,5 +25,10 @@ class EditEquipment extends EditRecord
         $equipmentItemType = $this->record->equipmentItemType()->first();
         $equipmentItemType->item_type_id = $itemTypeId;
         $equipmentItemType->save();
+
+        $tagId = $this->data['tag_id'];
+        $equipmentTag = $this->record->equipmentTag()->first();
+        $equipmentTag->tag_id = $tagId;
+        $equipmentTag->save();
     }
 }

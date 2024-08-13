@@ -8,6 +8,7 @@ use App\Filament\Resources\Item\EquipmentResource\Pages;
 use App\Filament\Resources\Item\EquipmentResource\RelationManagers;
 use App\Models\Equipment;
 use App\Models\ItemType;
+use App\Models\Tag;
 use Camya\Filament\Forms\Components\TitleWithSlugInput;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -186,6 +187,30 @@ class EquipmentResource extends Resource
                                     }
 
                                     return $record->equipmentItemType()->first()->item_type_id;
+                                })
+                                ->native(false)
+                                ->required(),
+
+                            Forms\Components\Select::make('tag_id')
+                                ->label('Tag')
+                                ->options(function ($context) {
+                                    if ('create' == $context) {
+                                        $tags = Tag::all();
+
+                                        return $tags
+                                                ->pluck('name', 'id')
+                                                ->toArray();
+                                    }
+
+                                    return Tag::pluck('name', 'id')
+                                                ->toArray();
+                                })
+                                ->formatStateUsing(function ($record, $context) {
+                                    if ('create' == $context) {
+                                        return null;
+                                    }
+
+                                    return $record->equipmentTag()->first()->tag_id;
                                 })
                                 ->native(false)
                                 ->required(),
