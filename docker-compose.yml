@@ -107,6 +107,16 @@ services:
             - mysql
         networks:
             - sail
+    redis-commander:
+        image: 'rediscommander/redis-commander:latest'
+        ports:
+            - '8081:8081'
+        environment:
+            REDIS_HOSTS: 'local:redis:6379'
+        depends_on:
+            - redis
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
