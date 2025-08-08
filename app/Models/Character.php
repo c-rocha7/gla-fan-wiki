@@ -17,4 +17,9 @@ class Character extends Model
         'icon',
         'image',
     ];
+
+    protected $casts = [
+        'icon'  => 'string',
+        'image' => 'string',
+    ];
 }
