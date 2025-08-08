@@ -17,6 +17,9 @@ class CharacterFactory extends Factory
     public function definition(): array
     {
         return [
+            'name'  => $this->faker->name,
+            'icon'  => $this->faker->imageUrl(64, 64, 'icon'),
+            'image' => $this->faker->optional()->imageUrl(300, 300, 'character'),
         ];
     }
 }
