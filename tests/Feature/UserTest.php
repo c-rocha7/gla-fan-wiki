@@ -61,6 +61,7 @@ class UserTest extends TestCase
         $response = $this->delete("/users/{$user->id}");
 
         $response->assertStatus(204);
-        $this->assertDatabaseMissing('users', ['id' => $user->id]);
+
+        $this->assertSoftDeleted('users', ['id' => $user->id]);
     }
 }
