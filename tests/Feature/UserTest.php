@@ -4,11 +4,20 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Session;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // Inicia a sessão para os testes
+        Session::start();
+    }
 
     public function testUserCanBeListed()
     {
@@ -22,10 +31,13 @@ class UserTest extends TestCase
 
     public function testUserCanBeCreated()
     {
+        $csrfToken = csrf_token();
+
         $response = $this->post('/users', [
             'name'     => 'John Doe',
             'email'    => 'john@example.com',
             'password' => 'password',
+            '_token'   => $csrfToken,
         ]);
 
         $response->assertStatus(201);
@@ -44,10 +56,12 @@ class UserTest extends TestCase
 
     public function testUserCanBeUpdated()
     {
-        $user = User::factory()->create();
+        $user      = User::factory()->create();
+        $csrfToken = csrf_token();
 
         $response = $this->put("/users/{$user->id}", [
-            'name' => 'Updated Name',
+            'name'   => 'Updated Name',
+            '_token' => $csrfToken,
         ]);
 
         $response->assertStatus(200);
@@ -56,9 +70,12 @@ class UserTest extends TestCase
 
     public function testUserCanBeDeleted()
     {
-        $user = User::factory()->create();
+        $user      = User::factory()->create();
+        $csrfToken = csrf_token();
 
-        $response = $this->delete("/users/{$user->id}");
+        $response = $this->delete("/users/{$user->id}", [
+            '_token' => $csrfToken,
+        ]);
 
         $response->assertStatus(204);
 
